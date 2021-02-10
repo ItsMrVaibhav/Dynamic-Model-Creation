@@ -1,4 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins&display=swap');
+
 * {
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    font-family: "Poppins";
+}
+
+body {
+    background-color: #A8DADC;
+}
+
+:root {
+    --headerHeight: 60px;
+}
+
+header {
+    width: 100%;
+    height: var(--headerHeight);
+    background-color: #1D3557;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+
+#Header-Margin {
+    width: 100%;
+    height: var(--headerHeight);
+}
+
+#Header-Heading {
+    margin: 0px 25px;
+    color: #FFFFFF;
+    font-family: "Bebas Neue";
+    font-size: 35px;
+}
+
+#Message {
+    margin: 25px;
+    margin-bottom: 0px;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #457B9D;
+}
+
+#Message p {
+    color: #FFFFFF;
+}
+
+#Message img {
+    cursor: pointer;
+    height: 15px;
+}
+
+.Container {
+    max-width: 800px;
+    margin: auto;
+    width: 100%;
+}
+
+#Model-Details {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    color: #FFFFFF;
+}
+
+.Input-Field {
+    padding: 5px 10px;
+    margin-bottom: 15px;
+}
+
+.Button {
+    padding: 5px 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    color: #FFFFFF;
+    background-color: #1D3557;
+    border-radius: 5px;
+}
+
+.Button:hover {
+    background-color: #E63946;
+    color: #FFFFFF;
+}
+
+.Submit-Button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #FFFFFF;
+    background-color: #1D3557;
+}
+
+.Submit-Button:hover {
+    background-color: #E63946;
+    color: #FFFFFF;
+}
+
+.Field-Type {
+    padding: 5px 10px;  
+}
+
+.Label {
+    margin-bottom: 5px;
+}
+
+.Field {
+    margin-bottom: 15px;
+    padding: 20px;
+    background-color: #457B9D;
+    display: flex;
+    flex-direction: column;
 }
