@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Model Generation</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <form id="Model-Details">
+        <input type="text" name="tableName" placeholder="Enter the table name">
+        <input type="number" name="tableColumns" placeholder="Enter the number of columns for the table">
+        <button>Add Column</button>
+        <input type="text" name="columnName1"></input>
+        <label>Select the field type</label>
+        <select>
+            <option value="">Char</option>
+            <option value="">FileField</option>
+            <option value="">ImageField</option>
+            <option value="">ImageField</option>
+        </select>
+        <input type="submit">
+    </form>
+</body>
+</html>
