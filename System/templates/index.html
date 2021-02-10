@@ -16,7 +16,7 @@
     </header>
 
     <div id="Header-Margin"></div>
-    
+
     <div class="Container">
         {% if message %}
         <div id=Message>
@@ -28,7 +28,7 @@
             {% csrf_token %}
             <input type="text" name="schemaName" placeholder="Enter the schema name" class="Input-Field">
             <input type="text" name="tableName" placeholder="Enter the table name" class="Input-Field">
-            <input type="number" name="tableColumns" placeholder="Enter the number of columns for the table" class="Input-Field">
+            <input type="number" name="tableColumns" placeholder="Enter the number of columns for the table" class="Input-Field" value="0" id="Number-Of-Columns">
             <button class="Button Add-Column-Button">Add Column</button>
             <div class="Fields"></div>
             <input type="submit" class="Submit-Button">
