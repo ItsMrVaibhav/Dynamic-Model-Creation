@@ -1,6 +1,7 @@
 # Dynamic-Model-Creation
 
 Note - Install psycopg2, if you dont have it
+
 pip install psycopg2
 
 1. Clone the repository
