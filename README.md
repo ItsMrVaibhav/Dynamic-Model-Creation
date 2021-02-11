@@ -1,5 +1,8 @@
 # Dynamic-Model-Creation
 
+Note - Install psycopg2, if you dont have it
+pip install psycopg2
+
 1. Clone the repository
 2. In the settings.py file, add the PostgreSQL database details
 3. Run - python manage.py migrate
