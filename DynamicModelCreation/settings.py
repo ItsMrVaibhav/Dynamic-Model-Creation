@@ -87,11 +87,11 @@ DATABASES = {
         # 'OPTIONS': {
         #     'options': '-c search_path=django'
         # },
-        'NAME': 'QWERTY',
-        'USER': 'postgres',
-        'PASSWORD': 'vaibhav12345',
-        'HOST': 'localhost',
-        'PORT': '5433',
+        'NAME': '{DATABASE NAME}',
+        'USER': '{USERNAME}',
+        'PASSWORD': '{PASSWORD}',
+        'HOST': '{HOST}',
+        'PORT': '{PORT NUMBER}',
     }
 }
 

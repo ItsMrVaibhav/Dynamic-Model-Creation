@@ -70,7 +70,6 @@ fieldsDataTypes = {
     "DecimalF": models.DecimalField(default = 0.0),
     "IntegerF": models.IntegerField(default = 0),
     "EmailF": models.EmailField(max_length = 200),
-    "FloatF": models.FloatField(),
     "PositiveBigIntegerF": models.PositiveBigIntegerField(),
     "PositiveIntegerF": models.PositiveIntegerField(),
     "SlugF": models.SlugField(max_length = 200),
