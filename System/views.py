@@ -7,6 +7,8 @@ from django.urls import clear_url_caches
 from importlib import import_module, reload
 from django.urls import reverse
 from django.conf import settings
+from datetime import date
+from datetime import datetime
 
 def createModel(schemaName, tableName, fields):
     class Meta:
@@ -15,6 +17,11 @@ def createModel(schemaName, tableName, fields):
     setattr(Meta, "app_label", "System") # Setting up the app label
     fields['__module__'] = "System.models"
     fields['Meta'] =  Meta
+
+    # if settings.DATABASES["default"]["OPTIONS"]["options"].find(schemaName) == -1:
+    #     settings.DATABASES["default"]["OPTIONS"]["options"] += "," + schemaName
+    #     reload(import_module(settings.ROOT_URLCONF))
+
     model = type(tableName, (models.Model, ), fields) # Creating the model
     call_command('makemigrations') # Making migrations
     call_command('migrate') # Migrating
@@ -33,7 +40,12 @@ def index(request):
         fields = {}
 
         for i in range(numberOfColumns):
-            fields[request.POST[f"columnName{i + 1}"]] = fieldsDataTypes[request.POST[f"fieldType{i + 1}"]]
+            try:
+                fields[request.POST[f"columnName{i}"]] = fieldsDataTypes[request.POST[f"fieldType{i}"]]
+            except:
+                return render(request, "index.html", context = {
+                    "message": "Some error occurred! Try again."
+                })
 
         model = createModel(schemaName, tableName, fields)
         
@@ -49,31 +61,21 @@ def index(request):
     return render(request, "index.html", context = {})
 
 fieldsDataTypes = {
-    "AutoF": models.AutoField(),
-    "BigAutoF": models.BigAutoField(),
     "BigIntegerF": models.BigIntegerField(),
     "BinaryF": models.BinaryField(),
     "BooleanF": models.BooleanField(),
     "CharF": models.CharField(max_length = 200),
-    "DateF": models.DateField(),
-    "DateTimeF": models.DateTimeField(),
-    "DecimalF": models.DecimalField(),
-    "IntegerF": models.IntegerField(),
-    "DurationF": models.DurationField(),
+    "DateF": models.DateField(date.today),
+    "DateTimeF": models.DateTimeField(datetime.now),
+    "DecimalF": models.DecimalField(default = 0.0),
+    "IntegerF": models.IntegerField(default = 0),
     "EmailF": models.EmailField(max_length = 200),
-    "FileF": models.FileField(upload_to = "Uploads/Files/"),
     "FloatF": models.FloatField(),
-    "ImageF": models.ImageField(upload_to = "Uploads/Images/"),
-    "NullBooleanF": models.NullBooleanField(),
     "PositiveBigIntegerF": models.PositiveBigIntegerField(),
     "PositiveIntegerF": models.PositiveIntegerField(),
     "SlugF": models.SlugField(max_length = 200),
-    "SmallAutoF": models.SmallAutoField(),
     "SmallIntegerF": models.SmallIntegerField(),
     "TextF": models.TextField(),
-    "TimeF": models.TimeField(),
-    "URLF": models.URLField(max_length=200),
-    "UUIDF": models.UUIDField(),
     # "ForeignK": models.ForeignKey({model}, on_delete = models.CASCADE),
     # "ManyToManyF": models.ManyToManyField({model}),
     # "OneToOneF": models.OneToOneField({model}, on_delete = models.CASCADE),
